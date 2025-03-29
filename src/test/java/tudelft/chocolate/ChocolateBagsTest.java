@@ -14,7 +14,7 @@ public class ChocolateBagsTest {
     }
 
     @ParameterizedTest(name = "small={0}, big={1}, total={2}, result={3}")
-    @CsvSource({ "4,0,10,-1", "4,1,10,-1", "5,2,10,0", "5,3,10,0" })
+    @CsvSource({ "1,4,9,-1", "0,3,15,-1", "0,1,5,-1", "0,4,20,-1" })
     public void onlyBigBars(int small, int big, int total, int expectedResult) {
         int result = new ChocolateBags().calculate(small, big, total);
         Assertions.assertEquals(expectedResult, result);
@@ -30,7 +30,7 @@ public class ChocolateBagsTest {
     }
 
     @ParameterizedTest(name = "small={0}, big={1}, total={2}, result={3}")
-    @CsvSource({ "4,2,3,3", "3,2,3,3", "2,2,3,-1", "1,2,3,-1" })
+    @CsvSource({ "3,6,2,6", "2,4,3,5", "3,2,4,-1", "8,3,5,-1" })
     public void onlySmallBars(int small, int big, int total, int expectedResult) {
         int result = new ChocolateBags().calculate(small, big, total);
         Assertions.assertEquals(expectedResult, result);
