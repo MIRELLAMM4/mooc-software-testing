@@ -7,15 +7,14 @@ public class Mirror {
 
         int begin = 0;
         int end = string.length() - 1;
-        for (; begin < end; begin++, end--) {
-            if (string.charAt(begin) == string.charAt(end)) {
-                mirror += String.valueOf(string.charAt(end));
-            }
-            else {
-                break;
-            }
+
+        // Recorremos la cadena comparando los extremos
+        while (begin < string.length() && string.charAt(begin) == string.charAt(end)) {
+            mirror += string.charAt(begin); // Añadimos el carácter a mirror
+            begin++;
+            end--;
         }
 
-        return begin == end ? string : mirror;
+        return mirror; // Retornamos la subcadena reflejada
     }
 }
