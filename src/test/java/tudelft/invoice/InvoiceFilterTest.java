@@ -10,8 +10,8 @@ public class InvoiceFilterTest {
     void filterInvoices() {
 
         InvoiceDao dao = new InvoiceDao();
-        Invoice mauricio = new Invoice("Mauricio", 20.0);
-        Invoice arie = new Invoice("Arie", 300.0);
+        Invoice mauricio = new Invoice("Gino", 40.0);
+        Invoice arie = new Invoice("Jair", 500.0);
 
         dao.save(mauricio);
         dao.save(arie);
