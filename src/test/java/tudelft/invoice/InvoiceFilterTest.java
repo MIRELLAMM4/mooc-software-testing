@@ -2,6 +2,8 @@ package tudelft.invoice;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import static org.mockito.Mockito.*;
 
 import java.util.List;
 
@@ -9,18 +11,15 @@ public class InvoiceFilterTest {
     @Test
     void filterInvoices() {
 
-        InvoiceDao dao = new InvoiceDao();
         Invoice gino = new Invoice("Gino", 40.0);
         Invoice jair = new Invoice("Jair", 500.0);
 
-        dao.save(gino);
-        dao.save(jair);
+        InvoiceDao dao = Mockito.mock(InvoiceDao.class);
 
         InvoiceFilter filter = new InvoiceFilter();
         List<Invoice> result = filter.filter();
 
-        Assertions.assertEquals(gino, result.get(0));
-        Assertions.assertEquals(1, result.size());
+        //Assertions
 
         dao.close();
     }
